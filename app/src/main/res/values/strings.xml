@@ -1,0 +1,47 @@
+<resources>
+	<string name="app_name">DL RESTful Signature Verifier</string>
+	<string name="title_activity_main">DL RESTful Signature Verifier 0.1</string>
+	<string name="site_url">www.d-logic.com/nfc-rfid-reader-sdk/</string>
+
+	<string-array name="digest_algorithms">
+		<item>SHA1</item>
+		<item>SHA-224</item>
+		<item>SHA-256</item>
+		<item>SHA-384</item>
+		<item>SHA-512</item>
+	</string-array>
+
+	<string-array name="cipher_algorithms">
+		<item>DER Encoded</item>
+		<item>r || s (old version)</item>
+	</string-array>
+
+    <string name="txt_device_type">File to sign:</string>
+    <string name="txt_digest_algorithm">Digest algorithm:</string>
+    <string name="txt_cipher_algorithm">ECDSA Signature Format:</string>
+    <string name="txt_key">-</string>
+    <string name="txt_card_id_sak">Signed file:</string>
+    <string name="txt_card_uid">Sig. binary:</string>
+    <string name="txt_block_data">Certificate:</string>
+
+	<string name="txt_btn_choose_file">CHOOSE\nA FILE</string>
+	<string name="txt_btn_get_signature">CHOOSE\nSIGNATURE</string>
+	<string name="txt_btn_save_signature">CHOOSE\nCERTIFICATE</string>
+	<string name="txt_btn_verify">VERIFY</string>
+
+	<string name="enterFileName">Enter file name:</string>
+	<string name="saveButtonText">Save</string>
+	<string name="cancelButtonText">Cancel</string>
+	<string name="cannotSaveFileMessage">Cannot save file</string>
+	<string name="fileNameFirstMessage">Please enter the file name first</string>
+	<string name="okButtonText">OK</string>
+	<string name="loadButtonText">Load</string>
+	<string name="accessDenied">Access denied</string>
+	<string name="missingFile">No such file</string>
+	<string name="newFolderButtonText">New folder</string>
+	<string name="newFolderDialogMessage">Create new folder</string>
+	<string name="createButtonText">Create</string>
+	<string name="folderCreationOk">Folder created sucessfully</string>
+	<string name="folderCreationError">Error while creating folder</string>
+	<string name="information">Information</string>
+</resources>
