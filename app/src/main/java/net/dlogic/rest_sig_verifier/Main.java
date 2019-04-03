@@ -23,7 +23,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import net.dlogic.dl_signer_nfc.DLSignerNfc;
 import net.dlogic.util.StringUtil;
 
 import org.json.JSONException;
@@ -69,7 +68,6 @@ public class Main extends Activity {
     ProgressDialog mProgressDialog;
     ProgressDialog mSpinnerDialog;
 
-    DLSignerNfc mDLSignerNfc;
     byte[] mDigest;
     byte[] mSignature;
 
@@ -90,14 +88,12 @@ public class Main extends Activity {
 
     @Override
     protected void onPause() {
-        DLSignerNfc.callOnPause(this);
         super.onPause();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        DLSignerNfc.callOnResume(this);
     }
 
     @Override
@@ -106,7 +102,6 @@ public class Main extends Activity {
         setContentView(R.layout.main);
 
         context = this;
-        DLSignerNfc.getInstance(this);
 
         // Get arrays from resources:
         res = getResources();
