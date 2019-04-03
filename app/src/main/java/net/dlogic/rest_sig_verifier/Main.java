@@ -45,6 +45,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static net.dlogic.rest_sig_verifier.GlobalApplication.getAppContext;
+
 /**
  * Created by d-logic on 12.02.2019.
  */
@@ -331,9 +333,9 @@ public class Main extends Activity {
 
                 MultipartUtility multipart = new MultipartUtility(requestURL, charset);
 
-                multipart.addFilePart("file", new File(mFileUri.getPath()));
-                multipart.addFilePart("signature", new File(mSignUri.getPath()));
-                multipart.addFilePart("certificate", new File(mCertUri.getPath()));
+                multipart.addFilePart("file", mFileUri);
+                multipart.addFilePart("signature", mSignUri);
+                multipart.addFilePart("certificate", mCertUri);
 
                 multipart.addFormField("query", json_params.toString());
 
@@ -425,11 +427,11 @@ public class Main extends Activity {
          * Adds a upload file section to the request
          *
          * @param fieldName  name attribute in <input type="file" name="..." />
-         * @param uploadFile a File to be uploaded
+         * @param fileUri a URI of the File to be uploaded
          * @throws IOException
          */
-        public void addFilePart(String fieldName, File uploadFile) throws IOException {
-            String fileName = uploadFile.getName();
+        public void addFilePart(String fieldName, Uri fileUri) throws IOException {
+            String fileName = StringUtil.getFileName(getAppContext(), fileUri);
             writer.append("--" + boundary).append(LINE_FEED);
             writer.append("Content-Disposition: form-data; name=\"" + fieldName
                             + "\"; filename=\"" + fileName + "\"").append(LINE_FEED);
@@ -439,7 +441,7 @@ public class Main extends Activity {
             writer.append(LINE_FEED);
             writer.flush();
 
-            FileInputStream inputStream = new FileInputStream(uploadFile);
+            FileInputStream inputStream = (FileInputStream) getContentResolver().openInputStream(fileUri);
             byte[] buffer = new byte[4096];
             int bytesRead = -1;
             while ((bytesRead = inputStream.read(buffer)) != -1) {
