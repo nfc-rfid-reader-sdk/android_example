@@ -22,7 +22,6 @@
             android:launchMode="singleTask"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/AppTheme"
-            android:autoRemoveFromRecents="true"
             android:screenOrientation="portrait">
 
             <intent-filter>
